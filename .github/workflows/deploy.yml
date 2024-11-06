@@ -1,10 +1,10 @@
 name: Deploy Static Page to S3
 on:
-  workflow_dispatch:*
+  workflow_dispatch:
 
 jobs:
   deploy:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       id-token: write
@@ -26,6 +26,6 @@ jobs:
 
       - name: Build
         run: npm run build
-      
+
       - name: Deploy
         run: aws s3 sync ./build s3://daidt7417-s3
